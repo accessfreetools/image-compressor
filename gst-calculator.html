@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GST Calculator India | Online GST Calculator 18% & More</title>
+  <meta name="description" content="Use our online GST calculator India tool to quickly add or remove GST. Works as an 18 percent GST calculator, reverse GST calculator, and easy GST calculator for Indian users." />
+  <meta name="keywords" content="gst calculator, gst calculator online, gst calculator india, online gst calculator, reverse gst calculator, easy gst calculator, indian gst calculator, gst calculator rapid, zoho gst calculator, 18 percent gst calculator" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f6f9fc;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      background-color: #fff;
+      margin: 0 auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #1d3557;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #457b9d;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1d3557;
+    }
+    .result {
+      margin-top: 25px;
+      padding: 15px;
+      background-color: #f1faee;
+      border: 2px dashed #457b9d;
+      border-radius: 10px;
+      font-size: 18px;
+    }
+    .ads {
+      margin: 20px auto;
+      text-align: center;
+    }
+    .summary {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+
+  <!-- AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>GST Calculator India</h1>
+    <h2>Easy Online GST Calculator (18% & More)</h2>
+
+    <label for="amount">Enter Amount (₹):</label>
+    <input type="number" id="amount" placeholder="Enter amount" />
+
+    <label for="gstRate">Select GST Rate (%):</label>
+    <select id="gstRate">
+      <option value="5">5%</option>
+      <option value="12">12%</option>
+      <option value="18" selected>18%</option>
+      <option value="28">28%</option>
+    </select>
+
+    <label for="type">GST Type:</label>
+    <select id="type">
+      <option value="add">Add GST</option>
+      <option value="remove">Remove GST</option>
+    </select>
+
+    <button onclick="calculateGST()">Calculate GST</button>
+
+    <div class="result" id="result">Result will be shown here...</div>
+
+    <!-- Ad Section -->
+    <div class="ads">
+      <!-- Replace with your actual AdSense unit -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <div class="summary">
+      Our <strong>GST calculator online</strong> is a free and <strong>easy GST calculator</strong> designed as per Indian GST laws. Whether you’re calculating using 5%, 12%, or <strong>18 percent GST calculator</strong>, this tool works flawlessly. Works similarly to <strong>Zoho GST calculator</strong> and also supports <strong>reverse GST calculator</strong> mode. Trusted by thousands for quick, accurate results — this is your <strong>GST calculator rapid</strong> solution.
+    </div>
+  </div>
+
+  <script>
+    function calculateGST() {
+      const amount = parseFloat(document.getElementById('amount').value);
+      const gstRate = parseFloat(document.getElementById('gstRate').value);
+      const type = document.getElementById('type').value;
+      const resultDiv = document.getElementById('result');
+
+      if (isNaN(amount) || amount <= 0) {
+        resultDiv.innerHTML = "Please enter a valid amount.";
+        return;
+      }
+
+      let gstAmount, totalAmount;
+
+      if (type === 'add') {
+        gstAmount = (amount * gstRate) / 100;
+        totalAmount = amount + gstAmount;
+        resultDiv.innerHTML = `
+          GST (${gstRate}%): ₹${gstAmount.toFixed(2)}<br/>
+          Total Amount (incl. GST): ₹${totalAmount.toFixed(2)}
+        `;
+      } else {
+        totalAmount = amount / (1 + gstRate / 100);
+        gstAmount = amount - totalAmount;
+        resultDiv.innerHTML = `
+          Base Amount (excl. GST): ₹${totalAmount.toFixed(2)}<br/>
+          GST (${gstRate}%): ₹${gstAmount.toFixed(2)}
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
